@@ -21,7 +21,7 @@ plt.ylabel('Items')
 plt.show()
 
 frequent_itemsets = apriori(aggregated, min_support=0.01, use_colnames=True)
-rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.1)
+rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.01)
 rules = rules.sort_values('lift', ascending=False)
 
 top_rules = rules.head(10)
