@@ -6,6 +6,7 @@ import networkx as nx
 
 data_path = 'Groceries_dataset.csv'
 groceries_data = pd.read_csv(data_path)
+groceries_data.dropna(inplace=True)
 
 groceries_data['Transaction_ID'] = groceries_data['Member_number'].astype(str) + '-' + groceries_data['Date']
 one_hot_encoded = pd.get_dummies(groceries_data.set_index('Transaction_ID')['itemDescription']).reset_index()
